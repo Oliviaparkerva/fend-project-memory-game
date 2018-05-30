@@ -121,7 +121,7 @@ refreshIcon.addEventListener('click', function (refreshBoard){
     shuffleDeck();
     matchedCards=[];
     starRating.innerHTML= "<li><i id='firstStar' class='fa fa-star'></i></li><li><i id='secondStar' class='fa fa-star'></i></li><li><i id='thirdStar' class='fa fa-star'></i></li>";
-    ;
+    clicksCounted=[];
     moves.innerHTML='0';
     allCards.forEach(function(card){
         card.classList.remove('open','show','match');
@@ -129,4 +129,5 @@ refreshIcon.addEventListener('click', function (refreshBoard){
 });
 
 document.getElementById("attemptsTaken").innerHTML = clicksCounted.length;
+
 
