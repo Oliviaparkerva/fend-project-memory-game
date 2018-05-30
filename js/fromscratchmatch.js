@@ -45,6 +45,9 @@ const modal = document.getElementById('successModal');
 var span = document.getElementsByClassName("close")[0];
 const starRating = document.getElementsByClassName('stars')[0];
 let moves=document.querySelector('span.moves');
+var refreshIcon = document.querySelector('.restart');
+let timer=document.getElementById('output');
+let running=0;
 
 /*https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order*/
 function shuffleDeck(){
@@ -55,10 +58,9 @@ function shuffleDeck(){
 shuffleDeck();
 
 
-      
 allCards.forEach(function(card){
     card.addEventListener('click', function(e){
-        
+        startStop();
         openCards.push(card);
         clicksCounted.push(card);
         card.classList.add('open','show');
@@ -83,10 +85,13 @@ allCards.forEach(function(card){
         
         var matches = matchedCards.length;
         if(matches == 16){
+            running=0;
+            tenths=-1;
             console.log('You won');
             modal.style.display = 'block';
-            document.getElementById('timeTaken').innerHTML = clicksCounted.length/2;
-        }
+            document.getElementById('attemptsTaken').innerHTML = Math.ceil(clicksCounted.length/2);//rounds down the result because there is no half a turn
+            document.getElementById('timeTaken').innerHTML = timer.innerHTML;
+            }
         
         function starRating(){
             if(clicksCounted.length >20){
@@ -108,16 +113,20 @@ allCards.forEach(function(card){
             
         }
         starRating();
-        
-        
     });
 });
 span.onclick = function() {
     modal.style.display = "none";
 }
 
-var refreshIcon = document.querySelector('.restart');
+document.getElementById("attemptsTaken").innerHTML = clicksCounted.length;
+
+/*1000 tenths equals 1 second and 100 tenths equals one tenth of a second.*/
+
+
+/*reset the html for the timer, reset the start-stop toggle to stopped*/
 refreshIcon.addEventListener('click', function (refreshBoard){
+    clearClock();
     shuffleDeck();
     matchedCards=[];
     starRating.innerHTML= "<li><i id='firstStar' class='fa fa-star'></i></li><li><i id='secondStar' class='fa fa-star'></i></li><li><i id='thirdStar' class='fa fa-star'></i></li>";
@@ -126,8 +135,42 @@ refreshIcon.addEventListener('click', function (refreshBoard){
     allCards.forEach(function(card){
         card.classList.remove('open','show','match');
     })
+    
 });
 
-document.getElementById("attemptsTaken").innerHTML = clicksCounted.length;
+var tenths=0;
+var seconds=0;
+var minutes=0;
+function addTime(){
+    if (running==1){
+        setTimeout(function increment(){
+            tenths++;
+            if (tenths >= 10) {
+                tenths = 0;
+                seconds++;
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+            }
+            timer.innerHTML = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds ? (seconds > 9 ? seconds : "0" + seconds) : "00") + ":" + (tenths > 9 ? tenths : "0" + tenths);
+            addTime();
+        },100);
+    }
+}
 
+/*This function needs to be triggered by the first card click to flip the switch and triggered again by the last match made to stop it*/
+function startStop(){
+    if (running==0){
+        running=1;
+        addTime();
+    }
+}
 
+function clearClock(){
+    timer.innerHTML='00:00:00';
+    tenths=-1;/*the clock runs for a second during refresh resulting in a tenth of a second being put on the clock*/
+    seconds=0;
+    minutes=0;
+    running=0;
+};
