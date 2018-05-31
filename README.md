@@ -3,7 +3,6 @@
 
 
 How to Play: . . .Click on the squares until you match all of the symbols. Have fun, beat your last time.
-All the plans babyBAAABAAAY!!
 
 Functionality
         -add event listener to each card so that when it is clicked it can respond
