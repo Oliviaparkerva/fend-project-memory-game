@@ -17,13 +17,13 @@
 
         <section class="score-panel">
         	<ul class="stars">
-                <li><i id='firstStar' class="fa fa-star"></i></li>
-        		<li><i id='secondStar' class="fa fa-star"></i></li>
-        		<li><i id='thirdStar' class="fa fa-star"></i></li>
+                <li><i id="firstStar" class="fa fa-star"></i></li>
+        		<li><i id="secondStar" class="fa fa-star"></i></li>
+        		<li><i id="thirdStar" class="fa fa-star"></i></li>
         	</ul>
 
             <span class="moves">0</span> Moves
-            
+
             <div class="restart">
         		<i class="fa fa-repeat"> Click to refresh board</i>
         	</div>
@@ -80,19 +80,19 @@
                 <i class="fa fa-cube"></i>
             </li>
         </ul>
-        
+
         <div id="successModal" class="modal">
             <div class="modal-content">
             <span class="close">&times;</span>
             <p>Oh Wowy! You've Won!</p>
             <p>Your star rating was</p> <span class="modal-stars"><ul class="stars">
-        	<li><i id='starOne' class="fa fa-star"></i></li>
-        	<li><i id='starTwo' class="fa fa-star"></i></li>
-        	<li><i id='starThree' class="fa fa-star"></i></li>
+        	<li><i id="starOne" class="fa fa-star"></i></li>
+        	<li><i id="starTwo" class="fa fa-star"></i></li>
+        	<li><i id="starThree" class="fa fa-star"></i></li>
             </ul></span>
             <p>This round took you <span id="timeTaken"></span> &amp; <span id="attemptsTaken"></span> attempts to finish</p>
-            <p>Would you like to play again?</p>
-            </div>
+            <button type="button" id="replay" class="refresh-button">Would you like to play again?</button>
+        </div>
         </div>
     </div>
 

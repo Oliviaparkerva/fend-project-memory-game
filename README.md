@@ -5,19 +5,6 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 All the plans babyBAAABAAAY!!
 Functionality
         -add event listener to each card so that when it is clicked it can respond 
@@ -43,10 +30,18 @@ Reset Game
         -add event listener to restart icon on click
             -shuffles the deck
             -empties the matchedCards array 
-            -removes all classes but card
+            -removes all classes but card from all cards
+        -replay button for modal that does the same thing and closes the modal
         
 Timer
-    
+        -start at 0 for tenths, secs, mins
+        -increment 10ths ++
+        -when 10ths>10 zero it out and add to secs, same with secs to min with 60
+        -format for single digits so they have a 0
+        -timer is triggered on first card click
+            -create a trigger to start the function for incrementing. put that trigger condition in the on click function otherwise each click speeds up the clock
+        -document.get...innerHTML to insert the time as a string with variables into the modal text and onto the page as div
+
 Star Rating Count
         -create and array that adds every card that is clicked.
         -an attempt should be every two cards so array.length/2 is actually the score
