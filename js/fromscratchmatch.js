@@ -168,6 +168,7 @@ function refreshBoard(){
     clearClock();
     shuffleDeck();
     matchedCards=[];
+    openCards=[];
     starRating.innerHTML= "<li><i id='first-star' class='fa fa-star'></i></li><li><i id='second-star' class='fa fa-star'></i></li><li><i id='third-star' class='fa fa-star'></i></li>";
     clicksCounted=[];
     moves.innerHTML='0';
