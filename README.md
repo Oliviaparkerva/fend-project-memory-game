@@ -1,38 +1,37 @@
 # Memory Game Project
 
-## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
 
+How to Play: . . .Click on the squares until you match all of the symbols. Have fun, beat your last time.
 All the plans babyBAAABAAAY!!
+
 Functionality
-        -add event listener to each card so that when it is clicked it can respond 
-        -each card that is clicked needs to be added to the openCards array 
+        -add event listener to each card so that when it is clicked it can respond
+        -each card that is clicked needs to be added to the openCards array
           -openCards array can only hold two cards at a time
           -each card that is clicked/added to openCards array needs to have open and show added to they class
-          -get the first child this is where the icons are within the <i> 
+          -get the first child this is where the icons are within the <i>
           -check the cards that are in the array to see if class of the first child of each matches
-        -if cards match = true, change the classes to card,show, match 
+        -if cards match = true, change the classes to card,show, match
           -push those cards to another array called cardMatches
           -cardMatches array needs to be used to end them game when the length is equal to 16
         -if cards match = false, remove the classes open and show from the elements using setTimeout function
           -remove these cards from the openCards array toggle back to just having the card class
         -disable the pointer events for open class so the card doesn't match itself or the matched list will be wrong and the card will stay open alone
-        
+
 End Game
         -trigger on the last click
         -when matchCards.length == 16
             -display a winner modal https://www.w3schools.com/howto/howto_css_modals.asp
-            
+
 Reset Game
         -on refresh the deck needs to be shuffled so create the function and call it (); before everything else happens
         -add event listener to restart icon on click
             -shuffles the deck
-            -empties the matchedCards array 
+            -empties the matchedCards array
             -removes all classes but card from all cards
         -replay button for modal that does the same thing and closes the modal
-        
+
 Timer
         -start at 0 for tenths, secs, mins
         -increment 10ths ++
