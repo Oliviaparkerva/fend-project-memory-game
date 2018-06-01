@@ -1,9 +1,11 @@
 # Memory Game Project
 
-
-
 How to Play: . . .Click on the squares until you match all of the symbols. Have fun, beat your last time.
 
+Code Dependencies:
+			-Font Icons: https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+			-Font: href="https://fonts.googleapis.com/css?family=Coda
+	
 Functionality
         -add event listener to each card so that when it is clicked it can respond
         -each card that is clicked needs to be added to the openCards array

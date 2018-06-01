@@ -59,13 +59,19 @@ function shuffleDeck(){
 }
 shuffleDeck();
 
+function attemptsMade(){
+	if (clicksCounted.length%2==0){
+			moves.innerHTML =  clicksCounted.length/2}
+	}
+
 allCards.forEach(function(card){
     card.addEventListener('click', function(e){
         startStop();
         openCards.push(card);
         clicksCounted.push(card);
         card.classList.add('open','show');
-        moves.innerHTML = clicksCounted.length;
+//        moves.innerHTML = (clicksCounted.length/2);
+				attemptsMade();
 
         if(openCards.length == 2 && (openCards[0].firstElementChild.className==openCards[1].firstElementChild.className)){
             openCards.forEach(function(card){
@@ -95,29 +101,23 @@ allCards.forEach(function(card){
         }
 
         function starRating(){
-            if(clicksCounted.length >25){
+            if(clicksCounted.length >24){
             document.getElementById('third-star').className='fa fa-star-o';
             document.getElementById('star-three').className='fa fa-star-o';
 
             }
 
-            if(clicksCounted.length >35){
+            if(clicksCounted.length >36){
             document.getElementById('second-star').className='fa fa-star-o';
             document.getElementById('star-two').className='fa fa-star-o';
 
             }
-
-            if(clicksCounted.length >45){
-            document.getElementById('first-star').className='fa fa-star-o';
-            document.getElementById('star-one').className='fa fa-star-o';
-            }
-
         }
         starRating();
     })
 })
 
-document.getElementById('attempts-made').innerHTML = clicksCounted.length;
+document.getElementById('attempts-made').innerHTML = (clicksCounted.length/2);
 
 /*reset the html for the timer, reset the start-stop toggle to stopped*/
 refreshIcon.addEventListener('click', function (){
