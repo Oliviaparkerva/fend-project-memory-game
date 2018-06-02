@@ -102,7 +102,7 @@ allCards.forEach(function(card){
             running=0;
             tenths=-1;
             modal.style.display = 'block';
-            document.getElementById('attempts-made').innerHTML = Math.ceil(clicksCounted.length/2);//rounds down the result because there is no half a turn
+            document.getElementById('attempts-made').innerHTML = clicksCounted.length/2;
             document.getElementById('final-output').innerHTML = successTimer.innerHTML;
         }
 
