@@ -50,7 +50,6 @@ let timer=document.getElementById('output');
 let replayButton= document.getElementById('replay');
 let running=0;
 let successTimer=document.getElementById('final-output');
-var holdCards;
 
 /*https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order*/
 function shuffleDeck(){
@@ -83,7 +82,6 @@ allCards.forEach(function(card){
 
         if(openCards.length == 2 && (openCards[0] != openCards[1])){
 					setTimeout(function(clearCards){
-          	console.log(openCards);
             openCards.forEach(function(card){
             	card.classList.remove('open','show')
             });
@@ -93,7 +91,6 @@ allCards.forEach(function(card){
 				
 				if(openCards.length==2){
 					disableCards=setTimeout(function(){
-						console.log(openCards);
 						allCards.forEach(function(card){
 							card.classList.add('hold')
 						});
@@ -104,7 +101,6 @@ allCards.forEach(function(card){
         if(matches == 16){
             running=0;
             tenths=-1;
-            console.log('You won');
             modal.style.display = 'block';
             document.getElementById('attempts-made').innerHTML = Math.ceil(clicksCounted.length/2);//rounds down the result because there is no half a turn
             document.getElementById('final-output').innerHTML = successTimer.innerHTML;
