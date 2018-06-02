@@ -50,6 +50,7 @@ let timer=document.getElementById('output');
 let replayButton= document.getElementById('replay');
 let running=0;
 let successTimer=document.getElementById('final-output');
+var holdCards;
 
 /*https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order*/
 function shuffleDeck(){
@@ -70,27 +71,36 @@ allCards.forEach(function(card){
         openCards.push(card);
         clicksCounted.push(card);
         card.classList.add('open','show');
-//        moves.innerHTML = (clicksCounted.length/2);
 				attemptsMade();
+				enableCards();
 
         if(openCards.length == 2 && (openCards[0].firstElementChild.className==openCards[1].firstElementChild.className)){
-            openCards.forEach(function(card){
-                matchedCards.push(card);
-                card.classList.add('match');
-            })
+					openCards.forEach(function(card){
+						matchedCards.push(card);
+            card.classList.add('match');
+          })
         }
 
         if(openCards.length == 2 && (openCards[0] != openCards[1])){
-            setTimeout(function(clearCards){
-                console.log(openCards);
-                openCards.forEach(function(card){
-                   card.classList.remove('open','show');
-                });
-                openCards=[];
-            },400);
+					setTimeout(function(clearCards){
+          	console.log(openCards);
+            openCards.forEach(function(card){
+            	card.classList.remove('open','show')
+            });
+          	openCards=[];
+          },400);
         }
-
-        let matches = matchedCards.length;
+				
+				if(openCards.length==2){
+					disableCards=setTimeout(function(){
+						console.log(openCards);
+						allCards.forEach(function(card){
+							card.classList.add('hold')
+						});
+					},100);
+				}
+			
+				let matches = matchedCards.length;
         if(matches == 16){
             running=0;
             tenths=-1;
@@ -141,6 +151,10 @@ function addTime(){
                 }
             }
             timer.innerHTML = (minutes ? (minutes > 9 ? minutes : '0' + minutes) : '00') + ':' + (seconds ? (seconds > 9 ? seconds : '0' + seconds) : '00') + ':' + (tenths > 9 ? tenths : '0' + tenths);
+							
+		
+					
+					
             successTimer.innerHTML=minutes + ' mins ' + seconds +' secs ';
             addTime();
         },100)
@@ -189,3 +203,10 @@ replayButton.addEventListener('click',function(){
     refreshBoard();
     hideModal();
 })
+function enableCards(){
+		setTimeout(function(){
+			allCards.forEach(function(card){
+				card.classList.remove('hold')
+			});
+		},300);
+	}
