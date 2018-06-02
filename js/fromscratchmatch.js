@@ -123,8 +123,6 @@ allCards.forEach(function(card){
     })
 })
 
-document.getElementById('attempts-made').innerHTML = (clicksCounted.length/2);
-
 /*reset the html for the timer, reset the start-stop toggle to stopped*/
 refreshIcon.addEventListener('click', function (){
     refreshBoard();
