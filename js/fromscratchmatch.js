@@ -129,6 +129,7 @@ refreshIcon.addEventListener('click', function (){
 })
 
 /*1000 tenths equals 1 second and 100 tenths equals one tenth of a second.*/
+/* 0 returns false because it is not a value*/
 let tenths=0;
 let seconds=0;
 let minutes=0;
@@ -144,12 +145,12 @@ function addTime(){
                     minutes++;
                 }
             }
-            timer.innerHTML = (minutes ? (minutes > 9 ? minutes : '0' + minutes) : '00') + ':' + (seconds ? (seconds > 9 ? seconds : '0' + seconds) : '00') + ':' + (tenths > 9 ? tenths : '0' + tenths);
+            timer.innerHTML = `${(minutes > 0 ? (minutes<10? `0${minutes}`:`${minutes}`):`00`)}:${(seconds > 0 ? (seconds<10? `0${seconds}` : `${seconds}`) : `00`)}:${(tenths > 0 ? (tenths<10? `0${tenths}` : `${tenths}`) : `00`)}`;
 							
-		
+						
 					
 					
-            successTimer.innerHTML=minutes + ' mins ' + seconds +' secs ';
+            successTimer.innerHTML=`${minutes}mins ${seconds}secs`;
             addTime();
         },100)
     }
@@ -204,3 +205,4 @@ function enableCards(){
 			});
 		},300);
 	}
+
