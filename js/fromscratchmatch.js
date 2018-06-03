@@ -145,10 +145,21 @@ function addTime(){
                     minutes++;
                 }
             }
-            timer.innerHTML = `${(minutes > 0 ? (minutes<10? `0${minutes}`:`${minutes}`):`00`)}:${(seconds > 0 ? (seconds<10? `0${seconds}` : `${seconds}`) : `00`)}:${(tenths > 0 ? (tenths<10? `0${tenths}` : `${tenths}`) : `00`)}`;
-							
-						
-					
+            timer.innerHTML = `${(minutes > 0 
+																	? (minutes<10 
+																		 ?`0${minutes}`
+																		 :`${minutes}`)
+																	:`00`)}
+															:${(seconds > 0 
+																	? (seconds<10 
+																		 ?`0${seconds}` 
+																		 : `${seconds}`) 
+																	: `00`)}
+															:${(tenths > 0 
+																	? (tenths<10 
+																		 ?`0${tenths}` 
+																		 : `${tenths}`) 
+																	: `00`)}`;				
 					
             successTimer.innerHTML=`${minutes}mins ${seconds}secs`;
             addTime();
