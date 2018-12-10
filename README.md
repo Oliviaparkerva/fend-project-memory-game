@@ -61,3 +61,6 @@ Bug Fixes
 	-Can click third card after two cards are chosen
 			-disabled cards when two cards are open, enable cards again.
 				-both use setTimeout functions
+
+Useful Links
+https://is.gd/mbBc8b create flip effect
